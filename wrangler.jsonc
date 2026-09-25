@@ -1,0 +1,35 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "finnsk-websites-solo-1",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-12-30",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*", "/mcp"]
+  },
+  "d1_databases": [
+    {
+      "binding": "SITE_DB",
+      "database_name": "finnsk-websites-solo",
+      "database_id": "e00f3b0f-882a-4e43-a694-8057de500374",
+      "preview_database_id": "local-finnsk-solo-db"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "finnsk-websites-solo-media",
+      "preview_bucket_name": "finnsk-websites-solo-media"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "CACHE",
+      "id": "27a20e362b0d4ac590d6907e3f00fc80",
+      "preview_id": "local-finnsk-solo-kv"
+    }
+  ]
+}

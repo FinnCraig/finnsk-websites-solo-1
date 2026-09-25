@@ -1,0 +1,37 @@
+{
+  "name": "finnsk-websites-solo-1",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Finnsk Solo — self-contained Cloudflare Worker template for Deploy to Cloudflare",
+  "scripts": {
+    "build": "node -e \"console.log('SPA is prebuilt in public/')\"",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev --port 8790",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.7.4"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20260522.1",
+    "typescript": "^5.6.3",
+    "wrangler": "4.93.1"
+  },
+  "cloudflare": {
+    "bindings": {
+      "SESSION_SECRET": {
+        "description": "Long random string for admin session cookies. Generate with `openssl rand -hex 32` (or accept the value prompted during Deploy)."
+      },
+      "SITE_DB": {
+        "description": "Solo D1 database. Auto-provisioned."
+      },
+      "CACHE": {
+        "description": "Solo KV namespace. Auto-provisioned."
+      },
+      "MEDIA": {
+        "description": "Solo R2 media bucket. Auto-provisioned."
+      }
+    }
+  }
+}
